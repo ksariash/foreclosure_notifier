@@ -1,0 +1,23 @@
+{
+  "name": "foreclosure_notifier",
+  "version": "1.0.0",
+  "description": "Send an email notification whenever a new foreclosed home appears on the market.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ksariash/foreclosure_notifier.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ksariash/foreclosure_notifier/issues"
+  },
+  "homepage": "https://github.com/ksariash/foreclosure_notifier#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.9",
+    "sendmail": "^1.6.1"
+  }
+}
