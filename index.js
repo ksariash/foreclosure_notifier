@@ -1,16 +1,34 @@
-/*
-const sendmail = require('sendmail')();
- 
-sendmail({
-    from: 'no-reply@yourdomain.com',
-    to: '@txt.att.net',
-    subject: 'test sendmail',
-    html: 'Mail of test sendmail ',
-  }, function(err, reply) {
-    console.log(err && err.stack);
-    console.dir(reply);
+const nodemailer = require('nodemailer');
+const {
+    smtp_host, smtp_port, smtp_user, smtp_pass, smtp_mailto
+} = require('./config')
+
+// create reusable transporter object using the default SMTP transport
+let transporter = nodemailer.createTransport({
+    host: smtp_host,
+    port: smtp_port,
+    secure: true,
+    auth: {
+        user: smtp_user,
+        pass: smtp_pass
+    }    
 });
-*/
+
+// setup email data with unicode symbols
+let mailOptions = {
+    from: smtp_host,
+    to: smtp_mailto,
+    text: 'New home on the market!'
+};
+
+// send mail with defined transport object
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+});
 
 const fetch = require('node-fetch');
 
